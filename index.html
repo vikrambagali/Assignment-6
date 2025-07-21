@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<header>
     <title>Weather App</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppinsdisplay=swap" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="query.css">
-</head>
+</header>
 <body>
+   
     <div class="container">
         <div class="card">
             <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
-            <h6 id="weather"></h6>
+            <h5 id="weather"></h5>
+            <h6>Temperature</h6>
             <h4><span id="temp"></span><sup>o</sup>C</h4>
             <img src="" id="icon">
+            <h6>Humidity</h6>
+            <h4><span id="humidity"></span><sup>o</sup>/<sub>o</sub></h4>
+            <img src="imgs/humidity-3-32.png" alt="">
+            <h6>Wind Speed</h6>
+            <h4><span id="speed"></span>m / s</h4>
+            <img class="wind" src="imgs/wind-speed-line-32.png" alt="">
+            
             <button onclick="window.location.reload()" class="refresh"><i class="fa fa-refresh"></i></button>
         </div>
     </div>
+    
+</body> 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
@@ -32,6 +43,8 @@
             document.getElementById('location').innerHTML = obj.name;
             document.getElementById('temp').innerHTML = Math.round(obj.main.temp - 273.15);
             document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+            document.getElementById('humidity').innerHTML = obj.main.humidity;
+            document.getElementById('speed').innerHTML = obj.wind.speed;
         }
         if(request.status>=200 && request.status < 400){
             var temp = obj.main.temp;
@@ -41,6 +54,5 @@
         }
         request.send();
     </script>
-    
-</body> 
+
 </html>
