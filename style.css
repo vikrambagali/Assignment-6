@@ -45,3 +45,20 @@ button.refresh{
 button.refresh:hover{
      box-shadow: inset 10px 4px 10px #252525,inset 5px 5px 18px #4a4a4a;
 }
+#locationInput{
+    background-color: #9c9c9d;
+    border-radius: 15px;
+    height: 4vh;
+    width: 15vw;
+    border: 1px solid #424141;
+    box-shadow: inset 10px 4px 10px #252525,inset 5px 5px 18px #4a4a4a;
+    font-family: Lato, 'Courier';
+    font-size:x-large;
+}
+::placeholder{
+    color: #2f3030;
+}
+h2{
+    box-shadow: inset 10px 4px 10px #252525,inset 5px 5px 18px #4a4a4a;
+    border-radius: 20%;
+}
