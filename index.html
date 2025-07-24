@@ -11,11 +11,7 @@
    
     <div class="container">
         <div class="card">
-            <form id="locationForm" onsubmit="return getWeather();">
-              <input type="text" id="locationInput" placeholder="Enter location" required />
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-
+        
             <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
             <h5 id="weather"></h5>
             <h6>Temperature</h6>
@@ -27,6 +23,12 @@
             <h6>Wind Speed</h6>
             <h4><span id="speed"></span>m / s</h4>
             <img class="wind" src="imgs/wind-speed-line-32.png" alt="">
+
+                <!-- Location Search Input -->
+        <form id="locationForm" onsubmit="return getWeather();">
+          <input type="text" id="locationInput" placeholder="Enter location" required />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
             
             <button onclick="window.location.reload()" class="refresh"><i class="fa fa-refresh"></i></button>
         </div>
@@ -41,14 +43,14 @@
 <script type="text/javascript">
   function loadWeather(location = "Patancheru") {
     const link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=c09c05903a29c37c7f93cae0c7afb89c`;
+
     var request = new XMLHttpRequest();
     request.open('GET', link, true);
     request.onload = function () {
       if (request.status >= 200 && request.status < 400) {
         var obj = JSON.parse(this.response);
-        console.log(obj);
-        document.getElementById('weather').innerHTML = obj.weather[0].description;
         document.getElementById('location').innerHTML = obj.name;
+        document.getElementById('weather').innerHTML = obj.weather[0].description;
         document.getElementById('temp').innerHTML = Math.round(obj.main.temp - 273.15);
         document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
         document.getElementById('humidity').innerHTML = obj.main.humidity;
@@ -58,21 +60,21 @@
       }
     };
     request.onerror = function () {
-      alert("Request failed. Please check your connection.");
+      alert("Request failed. Please check your internet connection.");
     };
     request.send();
   }
 
-  // Call once by default
+  // Load default weather on page load
   loadWeather();
 
-  // Called when user submits the form
+  // Get weather when form is submitted
   function getWeather() {
-    const userLocation = document.getElementById("locationInput").value.trim();
-    if (userLocation) {
-      loadWeather(userLocation);
+    const userInput = document.getElementById("locationInput").value.trim();
+    if (userInput) {
+      loadWeather(userInput);
     }
-    return false; // prevent page reload
+    return false; // Prevent form reload
   }
 </script>
 
