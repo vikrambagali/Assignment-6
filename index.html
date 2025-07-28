@@ -1,82 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
-    <title>Weather App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppinsdisplay=swap" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="query.css">
-</header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Open+Sans:wdth,wght@87.5,300&family=Poppins&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="query.css" />
+</head>
 <body>
-   
-    <div class="container">
-        <div class="card">
-        
-            <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
-            <h5 id="weather"></h5>
-            <h6>Temperature</h6>
-            <h4><span id="temp"></span><sup>o</sup>C</h4>
-            <img src="" id="icon">
-            <h6>Humidity</h6>
-            <h4><span id="humidity"></span><sup>o</sup>/<sub>o</sub></h4>
-            <img src="imgs/humidity-3-32.png" alt="">
-            <h6>Wind Speed</h6>
-            <h4><span id="speed"></span>m / s</h4>
-            <img class="wind" src="imgs/wind-speed-line-32.png" alt="">
 
-                <!-- Location Search Input -->
-        <form id="locationForm" onsubmit="return getWeather();">
-          <input type="text" id="locationInput" placeholder="Enter location" required />
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-            
-            <button onclick="window.location.reload()" class="refresh"><i class="fa fa-refresh"></i></button>
-        </div>
+  <div class="container">
+    <div class="card">
+
+      <h2><i class="fas fa-map-marker-alt"></i> <span id="location"></span></h2>
+      <h5 id="weather"></h5>
+      <h6>Temperature</h6>
+      <h4><span id="temp"></span><sup>o</sup>C</h4>
+      <img src="" id="icon" />
+      <h6>Humidity</h6>
+      <h4><span id="humidity"></span><sup>o</sup>/<sub>o</sub></h4>
+      <img src="imgs/humidity-3-32.png" alt="Humidity Icon" />
+      <h6>Wind Speed</h6>
+      <h4><span id="speed"></span> m/s</h4>
+      <img class="wind" src="imgs/wind-speed-line-32.png" alt="Wind Icon" />
+
+      <!--  Location Search Input -->
+      <form id="locationForm" onsubmit="return getWeather();">
+        <input type="text" id="locationInput" placeholder="Enter location" required />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+
+      <!--  Refresh Button -->
+      <button onclick="window.location.reload()" class="refresh">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+
     </div>
-    
-</body> 
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  <!--  jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-  function loadWeather(location = "Patancheru") {
-    const link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=c09c05903a29c37c7f93cae0c7afb89c`;
+  <!--  Main Script -->
+  <script type="text/javascript">
+    function loadWeather(location = "Patancheru") {
+      const link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=c09c05903a29c37c7f93cae0c7afb89c`;
 
-    var request = new XMLHttpRequest();
-    request.open('GET', link, true);
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        var obj = JSON.parse(this.response);
-        document.getElementById('location').innerHTML = obj.name;
-        document.getElementById('weather').innerHTML = obj.weather[0].description;
-        document.getElementById('temp').innerHTML = Math.round(obj.main.temp - 273.15);
-        document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
-        document.getElementById('humidity').innerHTML = obj.main.humidity;
-        document.getElementById('speed').innerHTML = obj.wind.speed;
-      } else {
-        alert("City not found. Please try another location.");
-      }
-    };
-    request.onerror = function () {
-      alert("Request failed. Please check your internet connection.");
-    };
-    request.send();
-  }
-
-  // Load default weather on page load
-  loadWeather();
-
-  // Get weather when form is submitted
-  function getWeather() {
-    const userInput = document.getElementById("locationInput").value.trim();
-    if (userInput) {
-      loadWeather(userInput);
+      var request = new XMLHttpRequest();
+      request.open('GET', link, true);
+      request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+          var obj = JSON.parse(this.response);
+          document.getElementById('location').innerHTML = obj.name;
+          document.getElementById('weather').innerHTML = obj.weather[0].description;
+          document.getElementById('temp').innerHTML = Math.round(obj.main.temp - 273.15);
+          document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+          document.getElementById('humidity').innerHTML = obj.main.humidity;
+          document.getElementById('speed').innerHTML = obj.wind.speed;
+        } else {
+          alert("City not found. Please try another location.");
+        }
+      };
+      request.onerror = function () {
+        alert("Request failed. Please check your internet connection.");
+      };
+      request.send();
     }
-    return false; // Prevent form reload
-  }
-</script>
 
+    // Load default weather on page load
+    loadWeather();
 
+    // Get weather when form is submitted
+    function getWeather() {
+      const userInput = document.getElementById("locationInput").value.trim();
+      if (userInput) {
+        loadWeather(userInput);
+      }
+      return false; // Prevent form reload
+    }
+  </script>
+
+</body>
 </html>
