@@ -102,3 +102,9 @@ For questions or suggestions, feel free to contact me at 28vikram20@gmail.com
 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+1. Netlify Deploy Link:
+   ```bash
+   https://apiprojectt.netlify.app/
+
+-----------=============-------------
