@@ -1,45 +1,54 @@
-/* Mobile styles */
-@media (min-width: 480px) {
-body {
-  font-size: 16px;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
+/* for mobile */
 
-}
-/* Tablets */
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   body {
-    font-size: 18px;
+    padding: 10px;
   }
-  img {
-  max-width: 100%;
-  height: auto;
-}
 
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  body {
-    font-size: 20px;
+  .container {
+    padding: 10px;
   }
-  img {
-  max-width: 100%;
-  height: auto;
-}
 
-}
-
-@media (max-width: 768px) {
-  .forecast {
-    flex-direction: column;
+  .card {
+    padding: 15px;
   }
-  img {
-  max-width: 100%;
-  height: auto;
+
+  #locationInput {
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  button.refresh {
+    font-size: 22px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .card h4 {
+    font-size: 1.3rem;
+  }
+
+  h6 {
+    font-size: 0.9rem;
+  }
 }
 
+/* it's for tablet and monitor/Desktops */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    width: 90%;
+    max-width: 450px;
+  }
+
+  #locationInput {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  button.refresh {
+    font-size: 26px;
+    height: 45px;
+    width: 45px;
+  }
 }
