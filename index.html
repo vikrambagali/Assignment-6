@@ -38,7 +38,7 @@
       </form>
 
       <!--  Refresh Button -->
-      <button onclick="window.location.reload()" class="refresh">
+      <button onclick="refreshWeather()" class="refresh">
         <i class="fas fa-sync-alt"></i>
       </button>
 
@@ -87,8 +87,14 @@
       }
       return false; // Prevent form reload
     }
+    //refresh button weather..
+    function refreshWeather(){
+      loadWeather(currentLocation);
+    }
+    refreshWeather();
   </script>
 
 </body>
 </html>
+
 
