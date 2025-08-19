@@ -37,7 +37,6 @@
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
 
-      <!--  Refresh Button -->
       <button onclick="refreshWeather()" class="refresh">
         <i class="fas fa-sync-alt"></i>
       </button>
@@ -45,14 +44,11 @@
     </div>
   </div>
 
-  <!--  jQuery -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
 
-  <!--  Main Script -->
-  <script type="text/javascript">
-    
+  <script type="text/javascript">  
   let currentLocation = "Patancheru";
     
     function loadWeather(location = "Patancheru") {
@@ -79,16 +75,14 @@
       request.send();
     }
 
-    // Load default weather on page load
     loadWeather();
 
-    // Get weather when form is submitted
     function getWeather() {
       const userInput = document.getElementById("locationInput").value.trim();
       if (userInput) {
         loadWeather(userInput);
       }
-      return false; // Prevent form reload
+      return false; 
     }
     //refresh button weather..
     function refreshWeather(){
@@ -99,6 +93,7 @@
 
 </body>
 </html>
+
 
 
 
