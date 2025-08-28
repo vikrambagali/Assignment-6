@@ -40,71 +40,63 @@ This project focuses on building a weather application that utilizes the OpenWea
    ```bash
    git clone https://github.com/vikrambagali/Assignment-6
 
-Navigate to the Project Directory:
+### Navigate to the Project Directory:
+```bash
 cd weather-app
-
-Open the index.html File:
+```
+**Open the index.html File:**
 
 Open index.html in your preferred web browser to view the application. Make sure to have an internet connection for API access.
 
+## 📷 Screenshots 
+
+Example:  
+
+![Wather Api Project Screenshot](./img/weatherapi.jpeg)
+
+---
 
 
+## Usage
 
-Usage
+**View Current Weather:**
+- The application loads the current weather data for a default location on startup.
 
+**Refresh Weather Data:**
+- Click the refresh button to fetch the latest weather data.
 
-View Current Weather:
-
-The application loads the current weather data for a default location on startup.
-
-
-
-Refresh Weather Data:
-
-Click the refresh button to fetch the latest weather data.
+**Responsive Display:**
+- Resize the browser window to see how the application adapts to different screen sizes.
 
 
+## Code Structure
 
-Responsive Display:
-
-Resize the browser window to see how the application adapts to different screen sizes.
-
-
-
-
-Code Structure
-
-
-index.html: Main HTML file containing the structure of the web application.
-
-styles.css: CSS file for styling the application, following the required units and responsive design principles.
-
-script.js: JavaScript file that handles API requests and UI updates.
-
-Separate files for any additional components/modules to maintain clean and organized code.
+- index.html: Main HTML file containing the structure of the web application.
+- styles.css: CSS file for styling the application, following the required units and responsive design principles.
+- script.js: JavaScript file that handles API requests and UI updates.
+- Separate files for any additional components/modules to maintain clean and organized code.
+- Requirements for OpenWeatherMap API
+- Users must sign up for a free account at OpenWeatherMap to obtain an API key, which is necessary for making API calls.
 
 
-Requirements for OpenWeatherMap API
+## Acknowledge
+- This project draws inspiration from various sources on modern web development practices and the use of APIs in applications.
 
 
-Users must sign up for a free account at OpenWeatherMap to obtain an API key, which is necessary for making API calls.
+## Contact
 
+**For questions or suggestions, feel free to contact me at** - 28vikram20@gmail.com
 
-Acknowledge
+## License
 
-
-This project draws inspiration from various sources on modern web development practices and the use of APIs in applications.
-
-
-Contact
-
-For questions or suggestions, feel free to contact me at 28vikram20@gmail.com
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+**This project is licensed under the MIT License - see the LICENSE file for details.**
 
 1. Netlify Deploy Link:
    ```bash
    https://apiprojectt.netlify.app/
 
 -----------=============-------------
+2. Netlify Deploy Link: -2-Same But Different
+```bash
+https://forcast-api.netlify.app/
+```
