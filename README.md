@@ -53,6 +53,7 @@ Open index.html in your preferred web browser to view the application. Make sure
 Example:  
 
 ![Wather Api Project Screenshot](./imgs/weatherapi.jpeg)
+![Wather Api Project Screenshot](./imgs/weatherapi2.jpeg)
 
 ---
 
