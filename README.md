@@ -83,6 +83,11 @@ Example:
 ## Acknowledge
 - This project draws inspiration from various sources on modern web development practices and the use of APIs in applications.
 
+## Site is live at Github Pages
+```bash
+https://vikrambagali.github.io/Assignment-6/
+```
+---
 
 ## Contact
 
